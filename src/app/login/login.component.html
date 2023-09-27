@@ -1,14 +1,18 @@
 <div class="login-page">
-    <div class="formbox">
-        <form [formGroup]="formlogin" (ngSubmit)="onSubmit()">
+    <div class="form">
+        <form class="loin-form" [formGroup]="formlogin" (ngSubmit)="onSubmit()">
+            <div class="logo-container">
+                <img src="assets\img\Logo.png" alt="Logo">
+            </div>
+            <h3>Login</h3>
+            <br>
             <label>email</label>
             <input type="email" class="asd" formControlName="email"/>
             <label>Password</label>
             <input type="password" class="asd" formControlName="password"/>
             <button  class="mainbox" (click)="navigateToHome()">Login</button>
             <button class="mainbox" (click)="onClick()">Login with Google</button>
-            <label>New customer?</label>
-            <button  class="mainbox">Register Now</button>
+            <p class="message">Not registered? <a href="/register">Create an account</a></p>
         </form>
     </div>
 </div>

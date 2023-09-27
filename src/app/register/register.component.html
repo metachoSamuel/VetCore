@@ -1,17 +1,21 @@
-<div class="register-page">
+<div class="login-page">
     <div class="form">
-        <h3>Create an account</h3>
-        <form class="register-form" [formGroup]="formReg" (ngSubmit)="onSubmit()">
+        <form class="loin-form" [formGroup]="formReg" (ngSubmit)="onSubmit()">
             <div class="logo-container">
                 <img src="assets\img\Logo.png" alt="Logo">
             </div>
-            <label>Username</label>
-            <input type="text" class="asd"/>
+            <h3>Register</h3>
+            <br>
+            <label>Name</label>
+            <input type="text" class="asd" formControlName="name"/>
+            <label>Last Name</label>
+            <input type="text" class="asd" formControlName="lastName"/>
             <label>Email</label>
             <input type="email" class="asd" formControlName="email"/>
             <label>Password</label>
             <input type="password" class="asd" formControlName="password"/>
-            <button>Register</button>
+            <button  class="mainbox" (click)="navigateToLogin()">Register</button>
+            <p class="message">do you already have an account? <a href="/login">Login</a></p>
         </form>
     </div>
 </div>
