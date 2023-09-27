@@ -1,1 +1,14 @@
-<p>login works!</p>
+<div class="login-page">
+    <div class="formbox">
+        <form [formGroup]="formlogin" (ngSubmit)="onSubmit()">
+            <label>email</label>
+            <input type="email" class="asd" formControlName="email"/>
+            <label>Password</label>
+            <input type="password" class="asd" formControlName="password"/>
+            <button  class="mainbox" (click)="navigateToHome()">Login</button>
+            <button class="mainbox" (click)="onClick()">Login with Google</button>
+            <label>New customer?</label>
+            <button  class="mainbox">Register Now</button>
+        </form>
+    </div>
+</div>

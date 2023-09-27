@@ -1,1 +1,17 @@
-<p>register works!</p>
+<div class="register-page">
+    <div class="form">
+        <h3>Create an account</h3>
+        <form class="register-form" [formGroup]="formReg" (ngSubmit)="onSubmit()">
+            <div class="logo-container">
+                <img src="assets\img\Logo.png" alt="Logo">
+            </div>
+            <label>Username</label>
+            <input type="text" class="asd"/>
+            <label>Email</label>
+            <input type="email" class="asd" formControlName="email"/>
+            <label>Password</label>
+            <input type="password" class="asd" formControlName="password"/>
+            <button>Register</button>
+        </form>
+    </div>
+</div>
