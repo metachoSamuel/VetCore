@@ -17,6 +17,8 @@ export class RegisterComponent implements OnInit {
       private userService: UserService
   ) {
     this.formReg = new FormGroup({
+      name: new FormControl(),
+      lastName: new FormControl(),
       email: new FormControl(),
       password: new FormControl()
     })
@@ -33,7 +35,8 @@ export class RegisterComponent implements OnInit {
     this.userService.register(this.formReg.value)
         .then(response => {
           console.log(response);
-          this.userService.addUser(this.formReg.value)
+          const { password, ...formValues } = this.formReg.value
+          this.userService.addUser(formValues)
           this.router.navigate(['/home']);
         })
         .catch(error => console.log(error));
