@@ -11,13 +11,17 @@ import {LoginComponent} from "./login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RegisterComponent} from "./register/register.component";
 import {HomeComponent} from "./home/home.component";
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,

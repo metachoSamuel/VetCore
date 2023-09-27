@@ -1,0 +1,48 @@
+
+<app-navbar></app-navbar>
+
+<!-- Hero Start -->
+<div class="container-fluid bg-primary hero-header mb-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <img class="img-fluid animated pulse infinite" src="../../assets/img/dof.png" alt="">
+            </div>
+            <div class="col-lg-6">
+                <form [formGroup]="formCit" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre propietario</label>
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Apellido propietario</label>
+                        <input type="text" class="form-control" formControlName="lastName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Numero telefono</label>
+                        <input type="text" class="form-control" formControlName="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo electronico</label>
+                        <input type="email" class="form-control" formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre mascota</label>
+                        <input type="text" class="form-control" formControlName="petName">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Edad mascota</label>
+                        <input type="text" class="form-control" formControlName="agePet">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Raza Mascota</label>
+                        <input type="text" class="form-control" formControlName="raza">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
