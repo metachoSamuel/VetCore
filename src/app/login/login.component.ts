@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
 import {FormControl, FormGroup} from "@angular/forms";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -36,17 +37,41 @@ export class LoginComponent implements OnInit {
     this.userService.loginUser(this.formlogin.value)
         .then(response => {
           console.log(response);
+          Swal.fire(
+            'User Login successfully',
+            '',
+            'success'
+          )
           this.navigateToHome();
         })
-        .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error),
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Datos erroneos'
+          })
+      });
   }
 
   onClick() {
     this.userService.loginWithGoogle()
         .then(response => {
           console.log(response);
+          Swal.fire(
+            'User Login successfully',
+            '',
+            'success'
+          )
           this.navigateToHome();
         })
-        .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error),
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Login fallo'
+          })
+      });
   }
 }

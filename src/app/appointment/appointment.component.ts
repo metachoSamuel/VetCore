@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {PetService} from "../services/pet.service";
+import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-appointment',
@@ -10,6 +12,7 @@ import {PetService} from "../services/pet.service";
 export class AppointmentComponent implements OnInit{
   formCit: FormGroup;
   constructor(
+      private router: Router,
       private petService: PetService
   ) {
     this.formCit = new FormGroup({
@@ -25,13 +28,29 @@ export class AppointmentComponent implements OnInit{
 
   ngOnInit(): void {
   }
+  navigateToHome() {
+    this.router.navigate(['/home']); // Navegar al componente HomeComponent
+  }
 
   onSubmit() {
     console.log(this.formCit.value);
     this.petService.addPet(this.formCit.value)
         .then(response => {
           console.log(response);
+          Swal.fire(
+            'Cita agendada',
+            '',
+            'success'
+          )
+          this.navigateToHome()
         })
-        .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error),
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se puede agendar la cita'
+          })
+      });
   }
 }
