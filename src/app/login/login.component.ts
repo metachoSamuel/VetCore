@@ -25,11 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToRegistro() {
-    this.router.navigate(['/register']); // Navegar al componente RegistroComponent
+    this.router.navigate(['/register']).then(r => {}); // Navegar al componente RegistroComponent
   }
 
   navigateToHome() {
-    this.router.navigate(['/home']); // Navegar al componente HomeComponent
+    this.router.navigate(['/home']).then(r => {}); // Navegar al componente HomeComponent
   }
 
   onSubmit() {
