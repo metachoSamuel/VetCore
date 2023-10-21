@@ -35,16 +35,20 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         console.log(this.formlogin.value);
         this.userService.loginUser(this.formlogin.value)
-            .then(response => {
-                console.log(response);
+            .then((userCredential) => {
+                console.log(userCredential);
                 Swal.fire(
                     'User Login successfully',
                     '',
                     'success'
                 )
                 this.navigateToHome();
+                return userCredential.user.getIdToken();
             })
-            .catch(error => {
+            .then((idToken) => {
+                const xhr = new XMLHttpRequest();
+            })
+            .catch((error) => {
                 console.log(error),
                     Swal.fire({
                         icon: 'error',
