@@ -59,23 +59,8 @@ export class LoginComponent implements OnInit {
     }
 
     onClick() {
-        this.userService.loginWithGoogle()
-            .then(response => {
-                console.log(response);
-                Swal.fire(
-                    'User Login successfully',
-                    '',
-                    'success'
-                )
-                this.navigateToHome();
-            })
-            .catch(error => {
-                console.log(error),
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Login fallo'
-                    })
-            });
+      this.userService.loginWithGoogle().then(response => {
+        this.navigateToHome()
+      }).catch(error => console.log(error))
     }
 }
